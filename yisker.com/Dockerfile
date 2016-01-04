@@ -19,8 +19,8 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 ENV NGINX_DIR /var/share/nginx
 WORKDIR $NGINX_DIR
 RUN rm -rf html \
-    && mkdir html*
-ADD defaultsite /var/share/nginx/
+    && mkdir html
+ADD defaultsite /var/share/nginx/html
 
 EXPOSE 80 443
 
