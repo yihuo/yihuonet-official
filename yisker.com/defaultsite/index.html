@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>易食客</title>
+<!--fonts-->
+<link href='http://fonts.useso.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/chocolat.css" rel="stylesheet">
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Arts School Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->	
+<!-- js -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- js -->
+<script src="js/modernizr.custom.97074.js"></script>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$(".scroll").click(function(event){		
+		event.preventDefault();
+		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+	});
+});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+<body>
+<!-- banner-slider -->
+<div id="home" class="banner-slider">
+		<!-- responsiveslides -->
+							<script src="js/responsiveslides.min.js"></script>
+								<script>
+									// You can also use "$(window).load(function() {"
+									$(function () {
+									 // Slideshow 4
+									$("#slider3").responsiveSlides({
+										auto: true,
+										pager: false,
+										nav: false,
+										speed: 500,
+										namespace: "callbacks",
+										before: function () {
+									$('.events').append("<li>before event fired.</li>");
+									},
+									after: function () {
+										$('.events').append("<li>after event fired.</li>");
+										}
+										});
+										});
+								</script>
+		<!-- responsiveslides -->
+		<div  id="top" class="callbacks_container">
+			<ul class="rslides" id="slider3">
+				<li>
+					<div class="banner one">
+							
+							<div class="container">
+								<div class="banner-info">
+									<h3>易食客 <span>|</span> 感谢有你 <span>|</span> 一路相伴</h3>
+									<h4><span>正在</span> 全新起航</h4>
+									<p>www.yisker.com</p>
+								</div>
+							</div>
+					</div>
+				</li>
+				<li>
+					<div class="banner two">
+							<div class="container">
+								<div class="banner-info">
+									<h3>易食客 <span>|</span> 感谢有你 <span>|</span> 一路相伴</h3>
+									<h4><span>正在</span> 全新起航</h4>
+									<p>www.yisker.com</p>
+								</div>
+							</div>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+</div>
+<div class="clearfix"></div>
+<!-- //banner-slider -->
+<!-- welcome -->
+<div class="welcome">
+	<div class="container">
+		<div class="welcome-head">
+			<h3>敬请期待</h3>
+			<p>各位小伙伴们，因公司业务调整，易食客于2015年12月16日正式停运，网站/App/微信平台 将实时关闭。您的相关数据我们已经妥善保密处理，易食客将转为专业的第三方外卖配送服务商。</p>
+			<p>您可以通过在<a href="http://ele.me">饿了么</a>点击外卖，选择支持“蜂鸟配送”的商家继续享受易食客带来的服务。现由易食客配送的城市包括：芜湖、合肥、郑州、苏州、无锡、蚌埠、盐城（即将开业）等。新的易食客官网预计将于2016年1月份上线。</p>
+		</div>
+	</div>
+</div>
+<!-- //welcome -->
+
+
+
+<div class="copy-right">
+	<div class="container">
+		<p>Copyright &copy; 2014-2015.Anhui E-huo Network Co.,Ltd.   All rights reserved. | 备案：<a target="_blank" href="http://www.miibeian.gov.cn">皖ICP备14007008号-1</a></p>
+	</div>
+</div>
+<!-- smooth scrolling -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+		/*
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear' 
+			};
+		*/								
+		$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!-- //smooth scrolling -->
+</body>
+</html>
