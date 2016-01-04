@@ -16,11 +16,11 @@ RUN apt-get update && \
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
-ENV NGINX_DIR /var/share/nginx
+ENV NGINX_DIR /usr/share/nginx
 WORKDIR $NGINX_DIR
 RUN rm -rf html \
     && mkdir html
-ADD defaultsite /var/share/nginx/html
+ADD defaultsite $NGINX_DIR/html
 
 EXPOSE 80 443
 
