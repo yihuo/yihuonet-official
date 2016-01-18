@@ -5,6 +5,7 @@ ENV REFRESHED_AT 2015-12-23 15:06
 
 #Version Define
 ENV YIHUONET_VER 0.1.3
+ENV YIHUONET_FILENAME yihuonet-v$YIHUONET_VER.zip
 
 ########################################
 # History  
@@ -22,8 +23,6 @@ WORKDIR $CATALINA_HOME
 ENV TOMCAT_MAJOR 7
 ENV TOMCAT_VERSION 7.0.67
 ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
-#ENV TOMCAT_VERSION 7.0.67
-#ENV TOMCAT_TGZ_URL http://mirrors.cnnic.cn/apache/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
 
 RUN set -x \
 	&& curl -fSL "$TOMCAT_TGZ_URL" -o tomcat.tar.gz \
@@ -31,22 +30,23 @@ RUN set -x \
 	&& rm bin/*.bat \
 	&& rm tomcat.tar.gz*
 
+	
 #########################################[START]!Pause official code to deploy yihuonet code.
 ENV TOMCAT_ORIGIN_ROOT webapps/ROOT
-ENV MCMS_DOWNLOAD_FILE http://a.oss.yihuonet.com/yihuonet-official-website/yihuonet-v$YIHUONET_VER.zip
+ENV MCMS_DOWNLOAD_FILE http://a.oss.yihuonet.com/yihuonet-official-website/$YIHUONET_FILENAME
 
 #Deploy AND Delete origin root directory
-RUN apt-get install -y wget unzip
 WORKDIR $CATALINA_HOME/webapps
-RUN rm -rf ROOT
-RUN mkdir ROOT
-WORKDIR $CATALINA_HOME/$TOMCAT_ORIGIN_ROOT
-RUN wget $MCMS_DOWNLOAD_FILE
-RUN unzip yihuonet-v$YIHUONET_VER.zip
+RUN apt-get install -y wget unzip \
+    && rm -rf ROOT \
+    && mkdir ROOT \
+    && cd $CATALINA_HOME/$TOMCAT_ORIGIN_ROOT \
+    && wget $MCMS_DOWNLOAD_FILE \
+    && unzip $YIHUONET_FILENAME \
+    && cd $CATALINA_HOME/webapps \
+	&& mv manager management
 ADD tomcat/conf/server.xml $CATALINA_HOME/conf/server.xml
 #########################################[END]!Recovery official code to deploy yihuonet code.
-WORKDIR $CATALINA_HOME/webapps
-RUN mv manager management
 WORKDIR $CATALINA_HOME
 
 EXPOSE 8080
