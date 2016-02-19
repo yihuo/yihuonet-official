@@ -1,7 +1,7 @@
 #Base Define
 FROM daocloud.io/library/java:7-jre
 MAINTAINER kai.zhu "kai.zhu@yihuonet.com"
-ENV REFRESHED_AT 2015-12-23 15:06
+ENV REFRESHED_AT 2016-02-19 16:30
 
 #Version Define
 ENV YIHUONET_VER 0.2.0
