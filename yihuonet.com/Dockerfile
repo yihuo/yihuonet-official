@@ -4,7 +4,7 @@ MAINTAINER kai.zhu "kai.zhu@yihuonet.com"
 ENV REFRESHED_AT 2015-12-23 15:06
 
 #Version Define
-ENV YIHUONET_VER 0.1.3
+ENV YIHUONET_VER 0.2.0
 ENV YIHUONET_FILENAME yihuonet-v$YIHUONET_VER.zip
 
 ########################################
