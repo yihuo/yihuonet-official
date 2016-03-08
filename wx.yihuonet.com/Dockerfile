@@ -18,7 +18,25 @@ ENV YIHUONET_FILENAME $PROJECT_NAME-v$PROJECT_VER.zip
 ########################################
 ENV DOWNLOAD_FILE http://us.oss.yihuonet.com/yihuonet-official-website/weiphp/$YIHUONET_FILENAME
 
-RUN apt-get update && apt-get install -y wget unzip \
+#Setup GD, iconv, mcrypt
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng12-dev \
+    && docker-php-ext-install -j$(nproc) iconv mcrypt \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd
+
+#pdo_mysql mb_strlen
+RUN apt-get install -y \
+        pdo_mysql \
+        mb_strlen \
+    && docker-php-ext-install -j$(nproc) pdo_mysql \
+    && docker-php-ext-install -j$(nproc) mb_strlen
+	
+	
+RUN apt-get install -y wget unzip \
     && rm -rf /var/www/html \
     && mkdir /var/www/html \
 	&& cd /var/www/html \
