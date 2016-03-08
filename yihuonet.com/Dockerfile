@@ -1,7 +1,7 @@
 #Base Define
 FROM daocloud.io/library/java:7-jre
 MAINTAINER kai.zhu "kai.zhu@yihuonet.com"
-ENV REFRESHED_AT 2016-02-19 16:30
+ENV REFRESHED_AT 2016-03-08 10:00
 
 #Version Define
 ENV YIHUONET_VER 0.2.4
@@ -44,7 +44,7 @@ RUN apt-get install -y wget unzip \
     && wget $MCMS_DOWNLOAD_FILE \
     && unzip $YIHUONET_FILENAME \
     && cd $CATALINA_HOME/webapps \
-	&& mv manager management
+	&& rm -rf manager
 ADD tomcat/conf/server.xml $CATALINA_HOME/conf/server.xml
 #########################################[END]!Recovery official code to deploy yihuonet code.
 WORKDIR $CATALINA_HOME
