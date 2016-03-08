@@ -25,4 +25,4 @@ RUN apt-get update && apt-get install -y wget unzip \
 	&& wget $DOWNLOAD_FILE \
 	&& unzip $YIHUONET_FILENAME \
 	&& rm -f $YIHUONET_FILENAME \
-	&& chmod +x Runtime
+	&& chmod +x Runtime/
