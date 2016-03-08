@@ -18,22 +18,22 @@ ENV YIHUONET_FILENAME $PROJECT_NAME-v$PROJECT_VER.zip
 ########################################
 ENV DOWNLOAD_FILE http://us.oss.yihuonet.com/yihuonet-official-website/weiphp/$YIHUONET_FILENAME
 
-#Setup GD, iconv, mcrypt
+#Setup GD, iconv, mcrypt, php-mbstring
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
         libpng12-dev \
+		php-mbstring \
     && docker-php-ext-install -j$(nproc) iconv mcrypt \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd
+	&& docker-php-ext-install -j$(nproc) php-mbstring
 
 #pdo_mysql mb_strlen
-RUN apt-get install -y \
-        pdo_mysql \
-        mb_strlen \
-    && docker-php-ext-install -j$(nproc) pdo_mysql \
-    && docker-php-ext-install -j$(nproc) mb_strlen
+RUN apt-get update && apt-get install -y php-pear \
+    && pecl install pdo pdo_mysql \
+    && docker-php-ext-enable pdo pdo_mysql
 	
 	
 RUN apt-get install -y wget unzip \
