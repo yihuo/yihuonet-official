@@ -25,4 +25,4 @@ RUN apt-get update && apt-get install -y wget unzip \
 	&& wget $DOWNLOAD_FILE \
 	&& unzip $YIHUONET_FILENAME \
 	&& rm -f $YIHUONET_FILENAME \
-	&& chmod 755 -R ./Runtime/
+	&& chmod 777 -R ./Runtime/ ./Uploads/Download ./Uploads/Picture ./Uploads/Editor ./Addons ./Data ./Application/Install/Data ./Application/Common/Conf/config.php
