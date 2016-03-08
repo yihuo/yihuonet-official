@@ -16,7 +16,7 @@ ENV YIHUONET_FILENAME yihuonet-v$YIHUONET_VER.zip
 #Official Code by docker-library, https://hub.docker.com/_/tomcat/
 
 ENV TOMCAT_ORIGIN_ROOT webapps/ROOT
-ENV MCMS_DOWNLOAD_FILE http://a.oss.yihuonet.com/yihuonet-official-website/$YIHUONET_FILENAME
+ENV MCMS_DOWNLOAD_FILE http://us.oss.yihuonet.com/yihuonet-official-website/$YIHUONET_FILENAME
 
 #Deploy AND Delete origin root directory
 WORKDIR $CATALINA_HOME/webapps
