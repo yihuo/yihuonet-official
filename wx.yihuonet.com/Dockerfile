@@ -9,14 +9,14 @@ ENV REFRESHED_AT 2015-03-08 14:35
 ########################################
 ########################################
 #Version Define - !!!!!!!!!!!!!!!MUST REVISE HERE FIRST!!!!!!!!!!!!!!!!!!!!!
-ENV PROJECT_NAME sample-project
+ENV PROJECT_NAME weiphp
 ENV PROJECT_VER 1.0.0
 ENV YIHUONET_FILENAME $PROJECT_NAME-v$PROJECT_VER.zip
 
 #Filename format: "project name"-v"version code".zip and upload to Download OSS(define in line 25).
 
 ########################################
-ENV DOWNLOAD_FILE http://us.oss.yihuonet.com/program-base/project/$YIHUONET_FILENAME
+ENV DOWNLOAD_FILE http://us.oss.yihuonet.com/yihuonet-official-website/weiphp/$YIHUONET_FILENAME
 
 RUN apt-get update && apt-get install -y wget unzip \
     && rm -rf /var/www/html \
