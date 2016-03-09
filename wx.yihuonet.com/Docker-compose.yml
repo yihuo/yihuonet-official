@@ -1,19 +1,24 @@
 program:
-  image: daocloud.io/yihuo/wx_yihuonet_com
+  image: daocloud.io/yihuo/php55
   restart: always
   links:
   - db
   ports:
-  - '8080'
+  - "80"
   environment:
-  - YIHUONET_MCMS_MYSQL_USER=dbuser
-  - YIHUONET_MCMS_MYSQL_USER_PASS=dbpasswd
   - VIRTUAL_HOST=wx.yihuonet.com
-  - YIHUONET_MCMS_MYSQL_JDBC=jdbc:mysql://db:3306/db?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+  volumes:
+  - /data/wx.yihuonet.com/www:/var/www/html
 db:
   image: daocloud.io/yihuo/mysql55
   restart: always
   expose:
-  - '3306'
+  - "3306"
   volumes:
   - /data/wx.yihuonet.com/mysql:/var/lib/mysql
+  labels:
+  - "All settings define in yihuo/mysql55 image"
+  - "MySQL-Server:db"
+  - "MySQL-Database:db"
+  - "MySQL-User:dbuser"
+  - "MySQL-User-Passwd:dbpasswd"
