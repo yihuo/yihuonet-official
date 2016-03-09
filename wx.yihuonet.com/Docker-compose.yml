@@ -11,7 +11,7 @@ program:
   - VIRTUAL_HOST=wx.yihuonet.com
   - YIHUONET_MCMS_MYSQL_JDBC=jdbc:mysql://db:3306/db?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
   volumes:
-  - /data/wx.yihuonet.com/upload:/var/www/html/Uploads
+  - /data/wx.yihuonet.com/www:/var/www/html/
 db:
   image: daocloud.io/yihuo/mysql55
   restart: always
