@@ -30,13 +30,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd
 
 
-#pdo_mysql
+#Setup pdo_mysql and php-mbstring
 RUN docker-php-ext-install pdo pdo_mysql
-	
-#Setup php-mbstring
-RUN apt-get install -y \
-		php-mbstring \	
-	&& docker-php-ext-install -j$(nproc) php-mbstring
+RUN docker-php-ext-install mbstring
 	
 RUN apt-get install -y wget unzip \
     && rm -rf /var/www/html \
